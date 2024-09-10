@@ -117,19 +117,20 @@ class Scanner {
         int depth = 1;
         while(!isAtEnd()) {
             if (peek() == '*' && peekNext() == '/') {
-                advance();
-                advance();
+                // Found end of the current block comments
+                advance(); // Consume '*'
+                advance(); // Consume '/'
                 // If the end matches the beginning, return
-                if (depth == 1) return;
+                if (depth == 1) return; // Exit upon end of all block comments
                 // When No. of beginning doesn't match end, updated depth and continue
                 depth--;
             } else if (peek() == '/' && peekNext() == '*') {
-                advance();
-                advance();
+                advance(); // Consume '/'
+                advance(); // Consume '*'
                 depth++;
             } else {
-                if (peek() == '\n') line++;
-                advance();
+                if (peek() == '\n') line++; // Met new line, update line numbers
+                advance(); // Consume current char anyway
             }
         }
         Lox.error(line, "Unterminated block comments.");
