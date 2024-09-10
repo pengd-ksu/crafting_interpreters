@@ -119,16 +119,16 @@ class Scanner {
             if (peek() == '*' && peekNext() == '/') {
                 advance();
                 advance();
+                // If the end matches the beginning, return
                 if (depth == 1) return;
+                // When No. of beginning doesn't match end, updated depth and continue
                 depth--;
-            } else if (peek() == '\n') {
-                line++;
-                advance();
             } else if (peek() == '/' && peekNext() == '*') {
                 advance();
                 advance();
                 depth++;
             } else {
+                if (peek() == '\n') line++;
                 advance();
             }
         }
