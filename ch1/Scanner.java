@@ -113,6 +113,7 @@ class Scanner {
     }
 
     private void blockComment() {
+        // depth is to keep track of the nested comments
         int depth = 1;
         while(!isAtEnd()) {
             if (peek() == '*' && peekNext() == '/') {
