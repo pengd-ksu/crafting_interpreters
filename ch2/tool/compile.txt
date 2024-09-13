@@ -1,0 +1,3 @@
+create a file named: Expr.java
+java peng.ch2.tool.GenerateAst ./peng/ch2/tool/
+
