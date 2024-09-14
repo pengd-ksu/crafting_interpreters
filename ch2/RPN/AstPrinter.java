@@ -15,6 +15,7 @@ public class AstPrinter implements Expr.Visitor<String> {
 
     @Override
     public String visitGroupingExpr(Expr.Grouping expr) {
+      // delegates the RPN conversion to the expression inside the grouping
         return expr.expression.accept(this);
     }
 
