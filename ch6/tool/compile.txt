@@ -1,0 +1,2 @@
+create a file named: Expr.java
+java peng.ch6.tool.GenerateAst peng/ch6/
