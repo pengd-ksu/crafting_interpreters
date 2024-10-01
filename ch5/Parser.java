@@ -15,13 +15,12 @@ class Parser {
       this.tokens = tokens;
     }
 
-    List<Stmt> parse() {
-      List<Stmt> statements = new ArrayList<>();
-      while (!isAtEnd()) {
-        statements.add(statement());
+    Expr parse() {
+      try {
+        return expression();
+      } catch (ParseError error) {
+        return null;
       }
-  
-      return statements; 
     }
 
     private Expr expression() {
